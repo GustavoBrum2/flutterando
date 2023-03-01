@@ -5,6 +5,14 @@ void main(List<String> arguments) {
   double peso;
   double altura;
   int quantidade;
+  double resultado;
+
+  resultado = regraDeTres(
+    x1: 4,
+    x2: 5,
+    y1: 2,
+  );
+  print(resultado);
 
   String? resposta = '1';
 
@@ -94,6 +102,11 @@ List<int> sequenciaFibonacciRecursiva(int quant, List<int> sequencia) {
 }
 
 void calcularIMC({required double altura, required double peso}) {
+  if (peso == 0 || altura == 0) {
+    print('Valoes inválidos.');
+    return;
+  }
+
   altura = altura / 100;
   double imc = peso / (altura * altura);
 
@@ -121,3 +134,30 @@ void calcularIMC({required double altura, required double peso}) {
     }
   }
 }
+
+double regraDeTres({double x1 = 0, double x2 = 0, double y1 = 0, double y2 = 0}) {
+  // x1/x2 = y1/y2
+  if (x1 == 0 && x2 != 0 && y1 != 0 && y2 != 0) {
+    x1 = (y1 * x2) / y2;
+    return x1;
+  } else {
+    if (x1 != 0 && x2 == 0 && y1 != 0 && y2 != 0) {
+      x2 = (x1 * y2) / y1;
+      return x2;
+    } else {
+      if (x1 != 0 && x2 != 0 && y1 == 0 && y2 != 0) {
+        y1 = (x1 * y2) / x2;
+        return y1;
+      } else {
+        if (x1 != 0 && x2 != 0 && y1 != 0 && y2 == 0) {
+          y2 = (y1 * x2) / x1;
+          return y2;
+        } else {
+          print("Valores inválidos.");
+          return 0;
+        }
+      }
+    }
+  }
+}
+
