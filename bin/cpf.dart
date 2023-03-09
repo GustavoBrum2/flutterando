@@ -6,6 +6,9 @@ void main(List<String> args) {
   print(validarCpf('15726569482'));
   print(validarCpf('15490187522'));
   print(validarCpf('65658543002'));
+  print(validarCpf("11144477735"));
+
+  print(formatarCPF('26837036190'));
 }
 
 bool validarCpf(String cpf) {
@@ -40,4 +43,8 @@ int calcularDigito(String cpf, int number) {
   }
 
   return ver;
+}
+
+String formatarCPF(String cpf) {
+  return '${cpf.substring(0, 3)}.${cpf.substring(3, 6)}.${cpf.substring(6, 9)}-${cpf.substring(9)}';
 }
