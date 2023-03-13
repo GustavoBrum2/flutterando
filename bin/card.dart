@@ -15,7 +15,7 @@ class Cartao {
   Cartao(this.number);
 
   bool isValid() {
-    /// numero sem os espaçoes
+    /// numero sem os espaços
     String numberAux = number.replaceAll(' ', '');
 
     ///numero sem o ultimo digito
