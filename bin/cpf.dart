@@ -5,10 +5,6 @@ void main(List<String> args) {
   print(validarCpf('85712496798'));
   print(validarCpf('15726569482'));
   print(validarCpf('15490187522'));
-  print(validarCpf('65658543002'));
-  print(validarCpf("11144477735"));
-
-  print(formatarCPF('26837036190'));
 }
 
 bool validarCpf(String cpf) {
