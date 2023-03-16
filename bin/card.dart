@@ -1,18 +1,21 @@
 void main(List<String> args) {
-  Cartao card1 = Cartao('5419 8250 0346 1210');
+  Card card1 = Card('5419 8250 0346 1210');
   print(card1.isValid());
 
-  Cartao card2 = Cartao('4916 6418 5936 9080');
+  Card card2 = Card('4916 6418 5936 9080');
   print(card2.isValid());
 
-  Cartao card3 = Cartao('5163 2533 9965 0586');
+  Card card3 = Card('5163 2533 9965 0586');
   print(card3.isValid());
+
+  Card card4 = Card('5271 2010 4588 3407');
+  print(card4.isValid());
 }
 
-class Cartao {
+class Card {
   String number;
 
-  Cartao(this.number);
+  Card(this.number);
 
   bool isValid() {
     /// numero sem os espaços
