@@ -1,8 +1,9 @@
 import 'dart:math';
 
 void main(List<String> args) {
-  Criptografia c1 = Criptografia("Gustavo");
+  Criptografia c1 = Criptografia("Gustavo Henrique de Brum");
   print(c1.key);
+  print(c1.mensagem);
 
   // String teste = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   // String espaco = " ";
@@ -16,9 +17,11 @@ void main(List<String> args) {
 
 class Criptografia {
   String mensagem;
+  String mensagemCripto = '';
   String key = '';
 
   Criptografia(this.mensagem) {
+    mensagem = mensagem.toUpperCase();
     gerarKey();
   }
 
@@ -29,4 +32,6 @@ class Criptografia {
       key += String.fromCharCode(65 + ran.nextInt(26));
     }
   }
+
+  void encode() {}
 }
