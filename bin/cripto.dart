@@ -33,5 +33,13 @@ class Criptografia {
     }
   }
 
-  void encode() {}
+  void encode() {
+
+    for(int i = 0; i < mensagem.length; i ++){
+
+      
+
+    }
+
+  }
 }
