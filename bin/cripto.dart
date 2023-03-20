@@ -1,9 +1,14 @@
 import 'dart:math';
 
 void main(List<String> args) {
-  Criptografia c1 = Criptografia("Gustavo Henrique de Brum");
+  Criptografia c1 = Criptografia("CACHORRO VERDE AMARELO AZUL E ADADADAAD");
   print(c1.key);
   print(c1.mensagem);
+
+  c1.encode();
+  print(c1.mensagemCripto);
+  c1.decode();
+  print(c1.mensagemCripto);
 
   // String teste = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   // String espaco = " ";
@@ -34,12 +39,41 @@ class Criptografia {
   }
 
   void encode() {
+    int aux;
 
-    for(int i = 0; i < mensagem.length; i ++){
+    for (int i = 0; i < mensagem.length; i++) {
+      if (mensagem.codeUnitAt(i) < 65 || mensagem.codeUnitAt(i) > 90) {
+        mensagemCripto += mensagem[i];
+      } else {
+        aux = (mensagem.codeUnitAt(i) + (key.codeUnitAt(i) - 65));
 
-      
+        if (aux > 90) {
+          mensagemCripto += String.fromCharCode(aux - 26);
+        } else {
+          mensagemCripto += String.fromCharCode(aux);
+        }
+      }
+    }
+  }
 
+  void decode() {
+    int aux;
+    String mensagemAux = '';
+    if (mensagem == mensagemCripto) return;
+    for (int i = 0; i < mensagem.length; i++) {
+      if (mensagemCripto.codeUnitAt(i) < 65 || mensagemCripto.codeUnitAt(i) > 90) {
+        mensagemAux += mensagemCripto[i];
+      } else {
+        aux = (mensagemCripto.codeUnitAt(i) - (key.codeUnitAt(i) - 65));
+
+        if (aux < 65) {
+          mensagemAux += String.fromCharCode(aux + 26);
+        } else {
+          mensagemAux += String.fromCharCode(aux);
+        }
+      }
     }
 
+    mensagemCripto = mensagemAux;
   }
 }
